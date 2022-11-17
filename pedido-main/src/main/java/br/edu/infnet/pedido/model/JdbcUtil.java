@@ -13,9 +13,9 @@ public class JdbcUtil {
 	
 	public static Connection obterConexao() {
 		logger.info("Inciando conexao com o banco de dados");
-		String password = "postgres";
-		String user= "postgres";
-		String url = "jdbc:postgresql://localhost:5430/pedidos?createDatabaseIfNotExist=true";
+		String password = "root";
+		String user= "root";
+		String url = "jdbc:mysql://localhost:3306/app?createDatabaseIfNotExist=true";
 		try {
 			return DriverManager.getConnection(url, user, password);
 		} catch (SQLException e) {
@@ -24,7 +24,4 @@ public class JdbcUtil {
 		}
 	}
 	
-	public static void main(String[] args) {
-		obterConexao();
-	}
 }
