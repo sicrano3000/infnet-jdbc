@@ -24,7 +24,6 @@ public class ClienteDAO extends JdbcDAO<Cliente>  {
 		return false;
 	}
 	
-	
 	@Override
 	public Boolean atualizar(Cliente cliente) {
 		String sql = "update cliente set nome = ? where codigo = ?";
@@ -51,8 +50,6 @@ public class ClienteDAO extends JdbcDAO<Cliente>  {
 		}
 		return false;
 	}
-	
-	
 
 	@Override
 	public Cliente obter(Long codigo){
@@ -72,8 +69,7 @@ public class ClienteDAO extends JdbcDAO<Cliente>  {
 			e.printStackTrace();
 		}
 		return null;
-	}
-	
+	}	
 	
 	@Override
 	public List<Cliente> listarTodos(){
@@ -94,6 +90,5 @@ public class ClienteDAO extends JdbcDAO<Cliente>  {
 		}
 		return null;
 	}
-	
 	
 }

@@ -1,8 +1,7 @@
 package br.edu.infnet.pedido.model.persistencia;
 
+import java.text.ParseException;
 import java.util.List;
-
-import br.edu.infnet.pedido.model.entidade.Cliente;
 
 public interface IDAO<T> {
 
@@ -12,7 +11,7 @@ public interface IDAO<T> {
 
 	Boolean deletar(T obj);
 
-	Cliente obter(Long codigo);
+	T obter(Long codigo) throws ParseException;
 
 	List<T> listarTodos();
 

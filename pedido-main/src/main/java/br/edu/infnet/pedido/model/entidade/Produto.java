@@ -7,7 +7,6 @@ public class Produto {
 	private Double preco;
 	
 	public Produto() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Produto(Long codigo, String descricao, Double preco) {
@@ -16,10 +15,6 @@ public class Produto {
 		this.descricao = descricao;
 		this.preco = preco;
 	}
-
-
-
-
 
 	public Long getCodigo() {
 		return codigo;
@@ -44,6 +39,5 @@ public class Produto {
 	public String toString() {
 		return "Produto [codigo=" + codigo + ", descricao=" + descricao + ", preco=" + preco + "]";
 	}
-
 
 }

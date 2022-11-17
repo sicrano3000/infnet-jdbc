@@ -3,7 +3,6 @@ package br.edu.infnet.pedido.model.entidade;
 public class Cliente {
 
 	private Long codigo;
-
 	private String nome;
 
 	public Cliente() {
@@ -22,9 +21,11 @@ public class Cliente {
 	public Long getCodigo() {
 		return codigo;
 	}
-
 	public String getNome() {
 		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	@Override
