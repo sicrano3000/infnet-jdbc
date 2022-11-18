@@ -17,8 +17,7 @@ public class ClienteDAOTest {
 		IDAO clienteDAO = new ClienteDAO();
 		Cliente cliente = new Cliente("Jose das Couves"); 
 		clienteDAO.salvar(cliente);
-	}
-	
+	}	
 	
 	@Test
 	public void test() {
@@ -26,8 +25,7 @@ public class ClienteDAOTest {
 		Cliente cliente = new Cliente("Jose das Couves"); 
 		boolean validacao = clienteDAO.salvar(cliente);
 		Assert.assertTrue(validacao);
-	}
-	
+	}	
 	
 	@Test
 	public void testUpdate() {
@@ -45,16 +43,14 @@ public class ClienteDAOTest {
 		Cliente cliente = new Cliente("Maria das Couves", lista.get(lista.size()-1).getCodigo()); 
 		boolean validacao = clienteDAO.deletar(cliente);
 		Assert.assertTrue(validacao);
-	}
-	
+	}	
 	
 	@Test
 	public void testListaClientes() {
 		IDAO clienteDAO = new ClienteDAO();
 		List<Cliente> lista = clienteDAO.listarTodos();
 		Assert.assertTrue(lista.size() > 0);
-	}
-	
+	}	
 
 	@Test
 	public void testObterCliente() throws ParseException {
@@ -62,7 +58,6 @@ public class ClienteDAOTest {
 		List<Cliente> lista = clienteDAO.listarTodos();
 		Cliente cliente = (Cliente) clienteDAO.obter(lista.get(0).getCodigo());
 		Assert.assertNotNull(cliente);;
-	}
-	
+	}	
 
 }

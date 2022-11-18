@@ -58,48 +58,26 @@ public class PedidoDAO extends JdbcDAO<Pedido>{
 
 	@Override
 	public Pedido obter(Long id) {
-		String sql = "select p.codigo, p.data, c.nome, i.produto_cod, pr.descricao, pr.preco from pedido p "
-				+ "	join cliente c"
-				+ "	join itens_pedido i"
-				+ "	join produto pr"
-				+ "	on p.cliente_cod = c.codigo"
-				+ "	and p.codigo = i.pedido_cod"
-				+ "	and pr.codigo = i.produto_cod"
-				+ " where p.codigo = ?";
-		
-		Map<Long, Pedido> pedidos = new TreeMap<>();
+		String sql = "select p.codigo, p.data, c.nome from pedido p "
+		+ "	join cliente c "
+		+ "	on p.cliente_cod = c.codigo "
+		+ " where p.codigo = ? ";
 		
 		try {
 			pstm = con.prepareStatement(sql); 
 			pstm.setLong(1, id); 
 			rs = pstm.executeQuery();
 			
-			Long codigo = null;
-			
-			while(rs.next()) {
-				codigo = rs.getLong("codigo");
+			if(rs.next()) {
+				Long codigo = rs.getLong("codigo");
 				LocalDate data = rs.getDate("data").toLocalDate();
 				String nome = rs.getString("nome");
-				Long codigoProduto = rs.getLong("produto_cod");
-				String descricao = rs.getString("descricao");
-				Double preco = rs.getDouble("preco");
-				Pedido pedido = null;
-				
-				if(pedidos.get(codigo) == null) {
-					pedido = new Pedido(codigo, data, new Cliente(nome));
-					pedido.setProdutos(new ArrayList<>());
-					pedidos.put(codigo, pedido);
-				}
-				
-				Produto produto = new Produto(codigoProduto, descricao, preco);
-				pedido = pedidos.get(codigo);
-				pedido.getProdutos().add(produto);
+				return new Pedido(codigo, data, new Cliente(nome));
 			}
-			
-			return new ArrayList<Pedido>(pedidos.values()).get(0);		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		return null;
 	}
 

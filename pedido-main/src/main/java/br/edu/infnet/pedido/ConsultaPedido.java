@@ -71,9 +71,6 @@ public class ConsultaPedido {
     	if (pedido != null) {
 			System.out.println(" - " + pedido.getData());
 			System.out.println(" -- " + pedido.getCliente().getNome());
-			pedido.getProdutos().forEach(prod -> {
-				System.out.println(" --- " + prod.getDescricao() + " - " + prod.getPreco());
-			});
     	}
     }
     
