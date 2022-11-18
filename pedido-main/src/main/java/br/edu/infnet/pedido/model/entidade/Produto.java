@@ -9,6 +9,11 @@ public class Produto {
 	public Produto() {
 	}
 	
+	public Produto(String descricao, Double preco) {
+		this.descricao = descricao;
+		this.preco = preco;
+	}
+	
 	public Produto(Long codigo, String descricao, Double preco) {
 		super();
 		this.codigo = codigo;
